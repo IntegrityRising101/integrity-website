@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: organization/integrity-platform
+  branch: main
+  auth_endpoint: https://auth.integritymovement.org/auth
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "reflections"
+    label: "Integrity Rising Daily Reflections"
+    folder: "src/content/reflections"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Scripture or Core Quote", name: "quote", widget: "text", required: false }
+      - { label: "Audio Reflection File", name: "audioUrl", widget: "file", required: false }
+      - { label: "Reflection Body", name: "body", widget: "markdown" }
+      - { label: "Daily Action Prompt", name: "actionPrompt", widget: "string" }
