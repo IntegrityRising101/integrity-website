@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/integrity-website
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "reflections"
+    label: "Integrity Rising Reflections"
+    folder: "src/content/reflections"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Scripture or Quote", name: "quote", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Daily Action Prompt", name: "actionPrompt", widget: "string" }
+
+  - name: "articles"
+    label: "Movement News & Articles"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Governance", "Youth Advocacy", "Business Ethics"] }
+      - { label: "Article Content", name: "body", widget: "markdown" }
